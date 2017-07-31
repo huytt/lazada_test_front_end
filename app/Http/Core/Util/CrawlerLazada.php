@@ -34,12 +34,16 @@ class CrawlerLazada implements ICrawler
             $price = $crawler->filter('#product_price')->first()->text();
             $spec_inf['Product Price'] = $price;
 
+            $img = $crawler->filter('.productImage')->first()->attr('data-big');
+            $spec_inf['product_img'] = $img;
+
             $crawlerSpec = $crawler->filter('.specification-table tr');
 
             foreach ($crawlerSpec as $domRow) {
                 $item_info = (new Crawler($domRow))->filter('td');
                 $spec_inf[$item_info->getNode(0)->textContent] = $item_info->getNode(1)->textContent;
             }
+//            dd($spec_inf);
             return $spec_inf;
         }catch (\Exception $e){
             return [];

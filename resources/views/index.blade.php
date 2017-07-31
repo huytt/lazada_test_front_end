@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta charset="utf-8" />
-    <title>Dashboard - Ace Admin</title>
+    <title>Lazada test font-end compare specific of products</title>
 
     <meta name="description" content="overview &amp; stats" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
@@ -69,6 +69,14 @@
                 </div>
                 <div class="row">
                     <div class="col-xs-12">
+                        @if ( count($errors) > 0 )
+                            <div class="error-msg">
+                                @foreach ($errors->all() as $error)
+                                    <div style="color:red;"><strong>{{ $error }}</strong></div>
+                                @endforeach
+                            </div>
+                        @endif
+
                         <form action="{{URL::route('Home.postCompare')}}" method="post">
                             {{csrf_field()}}
                             <div class="row">
@@ -92,7 +100,7 @@
                                 </div>
                             </div>
 
-                            @if(!(empty($specA) || empty($specB)))
+                            @if(count($errors) <= 0 && !(empty($specA) || empty($specB)))
                                 <div class="row result-compare">
                                     <div class="col-xs-12 col-sm-6 widget-container-col ui-sortable">
                                         <div class="widget-box ui-sortable-handle" id="widget-box-1">
@@ -102,18 +110,24 @@
 
                                             <div class="widget-body">
                                                 <div class="widget-main">
-                                                    <table class="table table-striped table-bordered table-hover">
-                                                        <tbody>
-                                                            @foreach($specB as $key => $value)
-                                                                @if($key != 'product_name')
-                                                                    <tr>
-                                                                        <td class="">{{$key}}</td>
-                                                                        <td class="">{{$value}}</td>
-                                                                    </tr>
-                                                                @endif
-                                                            @endforeach
-                                                        </tbody>
-                                                    </table>
+                                                    <div class="widget-main no-padding">
+                                                        <table class="table table-striped table-bordered table-hover">
+                                                            <tbody>
+                                                            <tr>
+                                                                <td colspan="2"><img src="{{$specA['product_img']}}" class="media-object"/></td>
+                                                            </tr>
+
+                                                            @foreach($specA as $key => $value)
+                                                                    @if($key != 'product_name' && $key != 'product_img')
+                                                                        <tr>
+                                                                            <td class="">{{$key}}</td>
+                                                                            <td class="">{{$value}}</td>
+                                                                        </tr>
+                                                                    @endif
+                                                                @endforeach
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -126,18 +140,24 @@
 
                                             <div class="widget-body">
                                                 <div class="widget-main">
-                                                    <table class="table table-striped table-bordered table-hover">
-                                                        <tbody>
-                                                            @foreach($specA as $key => $value)
-                                                                @if($key != 'product_name')
+                                                    <div class="widget-main no-padding">
+                                                        <table class="table table-striped table-bordered table-hover">
+                                                            <tbody>
                                                                 <tr>
-                                                                    <td class="">{{$key}}</td>
-                                                                    <td class="">{{$value}}</td>
+                                                                    <td colspan="2"><img src="{{$specB['product_img']}}" class="media-object"/></td>
                                                                 </tr>
-                                                                @endif
-                                                            @endforeach
-                                                        </tbody>
-                                                    </table>
+
+                                                                @foreach($specB as $key => $value)
+                                                                    @if($key != 'product_name' && $key != 'product_img')
+                                                                    <tr>
+                                                                        <td class="">{{$key}}</td>
+                                                                        <td class="">{{$value}}</td>
+                                                                    </tr>
+                                                                    @endif
+                                                                @endforeach
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

@@ -11,3 +11,8 @@
 .result-compare{
     padding-top: 10px;
 }
+
+.media-object{
+    max-height: 150px;
+    margin: 0 auto;
+}

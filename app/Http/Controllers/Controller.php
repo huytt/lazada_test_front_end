@@ -43,13 +43,13 @@ class Controller extends BaseController
                 if ($request->wantsJson()) {
                     $response = [
                         'error'   => true,
-                        'message' => 'Please recheck url!!!!!!!'
+                        'message' => "Can't get specific info. Please recheck url!!!!!!!"
                     ];
 
                     return response()->json($response);
                 }
 
-                return redirect()->back()->withErrors("Please recheck url!!!!!!!")->withInput();
+                return redirect()->back()->withErrors("Can't get specific info. Please recheck url!!!!!!!")->withInput();
             }
 
             $response = [
