@@ -1,3 +1,26 @@
+# Test for senior Front-End developer for Lazada Group
+
+## Task:
+
+Provide an HTML page containing 2 fields where user can enter 2 urls and a validation button triggering a function.
+
+The triggered Javascript function will use those 2 urls and parse the DOM to get the specifications of both products.
+
+Then specifications will be displayed on the same HTML page in a three columns table with labels of specifications in the first column then the specifications in the 2 other columns.
+
+## Specifications:
+
+Consider two random phone product urls from Lazada, for example:
+
+http://www.lazada.sg/apple-iphone-7-plus-256gb-jet-black-8634330.html 
+
+http://www.lazada.sg/samsung-galaxy-s8-64gb-midnight-black-18155589.html 
+
+## Live demo test:
+
+http://test.batdongsansg24h.com
+
+
 # Laravel PHP Framework
 
 [![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
