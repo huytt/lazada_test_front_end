@@ -8,6 +8,7 @@ Then specifications will be displayed on the same HTML page in a three columns t
 Consider two random phone product urls from Lazada, for example:
 
 http://www.lazada.sg/apple-iphone-7-plus-256gb-jet-black-8634330.html 
+
 http://www.lazada.sg/samsung-galaxy-s8-64gb-midnight-black-18155589.htm
 
 # Laravel PHP Framework
